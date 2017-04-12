@@ -29,7 +29,12 @@ public class Aty_MyBrowser extends AppCompatActivity {
             }
             // 实例化WebView
             webView = (WebView) this.findViewById(R.id.webView);
+            //设置setWebViewClient方法，则当进行网页跳转时，会在当前webview里跳转，不会调用系统默认浏览器。
             webView.setWebViewClient(new WebViewClient(){
+                /**
+                 * 在点击请求的是链接时才会调用，重写此方法返回true表明点击网页里面的链接还是在当前的webview里跳转，
+                 * 不跳到浏览器那边。
+                 */
                 @Override
                 public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
 //                    view.loadUrl(uri.toString());//这句可写可不写
